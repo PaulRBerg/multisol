@@ -1,0 +1,8 @@
+[workspace]
+
+members = [
+    "multisol",
+    "multisol-collector",
+    "multisol-structs",
+    "multisol-writer"
+]

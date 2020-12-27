@@ -1,0 +1,27 @@
+[package]
+authors = ["Paul Razvan Berg <hello@paulrberg.com>"]
+categories = ["command-line-utilities"]
+description = "Command-line application for verifying Solidity contracts on Etherscan"
+documentation = "https://docs.rs/multisol"
+edition = "2018"
+exclude = [
+    "datasets/*",
+    "node_modules/*",
+]
+homepage = "https://github.com/paulrberg/multisol"
+keywords = ["ethereum", "etherscan", "solidity", "web3"]
+license = "MIT"
+name = "multisol"
+repository = "https://github.com/paulrberg/multisol"
+version = "1.0.0"
+
+[dependencies]
+anyhow = "1.0"
+multisol-collector = { path = "../multisol-collector", version = "1.0" }
+multisol-structs = { path = "../multisol-structs", version = "1.0" }
+multisol-writer = { path = "../multisol-writer", version = "1.0" }
+structopt = "0.3"
+
+[dev-dependencies]
+assert_cmd = "1.0"
+predicates = "1.0"

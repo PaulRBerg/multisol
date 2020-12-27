@@ -1,0 +1,7 @@
+# folders
+multisol-a
+!node_modules
+target/
+
+# files
+**/*.rs.bk

@@ -1,0 +1,14 @@
+[package]
+authors = ["Paul Razvan Berg <hello@paulrberg.com>"]
+description = "Collection of structs shared across the multisol crate"
+edition = "2018"
+homepage = "https://github.com/paulrberg/multisol"
+keywords = ["ethereum", "etherscan", "solidity", "web3"]
+license = "MIT"
+name = "multisol-structs"
+repository = "https://github.com/paulrberg/multisol"
+version = "1.0.0"
+
+[dependencies]
+anyhow = "1.0"
+structopt = "0.3"
