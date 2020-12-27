@@ -16,6 +16,7 @@ dependencies in the same directory. Multisol refactors the source code to import
 This works only if you're a user of **macOS**.
 
 ```sh
+$ brew tap paulrberg/multisol
 $ brew install multisol
 ```
 
