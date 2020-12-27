@@ -7,25 +7,43 @@ dependencies in the same directory. Multisol refactors the source code to import
 
 - [x] Designed to be used with Etherscan's multi-part compiler type
 - [x] Framework agnostic, so it is compatible with Hardhat, Truffle, or vanilla Solidity projects
-- [x] Works with contracts imported from "node_modules"
+- [x] Compatible with contracts imported from "node_modules"
 
 ## Installation
 
-For Mac:
+### Homebrew
+
+This works only if you're a user of **macOS**.
 
 ```sh
 $ brew install multisol
 ```
 
-For Linux:
+### Cargo
+
+This works across operating systems, but it requires you to have [Cargo](https://doc.rust-lang.org/cargo/getting-started/installation.html) installed on your machine.
 
 ```sh
-$ todo
+$ cargo install multisol
 ```
+
+### Binaries
+
+Archives of precompiled binaries for multisol are available for macOS, Linux and Windows in our [releases
+page](https://github.com/paulrberg/multisol/releases). If in doubt with regard to the other installation options, you should
+download the binary directly.
 
 ## Example
 
-Lorem ipsum.
+The code listing below will generate a folder named "multisol-fintroller" that can be used to verify the source code for
+the `Fintroller.sol` contract on Etherscan.
+
+```sh
+git clone https://github.com/mainframehq/mainframe-lending-protocol.git /tmp/example
+cd /tmp/example
+yarn install
+multisol contracts/Fintroller.sol
+```
 
 ## Limitations
 
@@ -37,9 +55,8 @@ Lorem ipsum.
 
 ## Acknowledgements
 
-This project has been inspired by [Solt](https://github.com/hjubb/solt), developed by @hjubb. Besides being written in
-different programming languages, Multisol differs from Solt in that it uses the multi-part compiler type, while
-the latter relies on the [standard json](https://docs.soliditylang.org/en/v0.8.0/using-the-compiler.html) input format.
+This project has been inspired by [Solt](https://github.com/hjubb/solt), developed by @hjubb. Multisol is different in
+that it uses the multi-part compiler type, while Solt uses [standard json](https://docs.soliditylang.org/en/v0.8.0/using-the-compiler.html) input format.
 
 ## License
 
