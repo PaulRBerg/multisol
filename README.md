@@ -3,7 +3,7 @@
 Multisol is a CLI application for verifying Solidity contracts on Etherscan.
 
 You give it the path to your target contract and it generates a directory with that contract and all its
-dependencies in the same directory. Multisol refactors the source code to import dependencies from their new location.
+dependencies at the same relative path. Multisol refactors the source code to import dependencies from their new location.
 
 - [x] Designed to be used with Etherscan's multi-part compiler type
 - [x] Framework agnostic, so it is compatible with Hardhat, Truffle, or vanilla Solidity projects
@@ -37,15 +37,20 @@ Use this installation option if you are in doubt with regard to the others.
 
 ## Example
 
-The code listing below will generate a folder named "multisol-fintroller" that can be used to verify the source code for
-the `Fintroller.sol` contract on Etherscan.
+The listing below will generate a folder named "multisol-fytoken" that can be used to verify the source code for
+a deployed instance of the `FyToken.sol` contract from the
+[mainframe-lending-protocol](https://github.com/mainframehq/mainframe-lending-protocol) repository.
 
 ```sh
 git clone https://github.com/mainframehq/mainframe-lending-protocol.git /tmp/example
 cd /tmp/example
 yarn install
-multisol contracts/Fintroller.sol
+multisol contracts/FyToken.sol
 ```
+
+After the folder is generated, you go to the contract's tab on Etherscan, click the "Verify & Publish" button and select
+the "Solidity (Multi-Part files)" option in the dropdown. Then, you upload the folder, hit submit and voilà, your
+contract is verified on Etherscan!
 
 ## Limitations
 
