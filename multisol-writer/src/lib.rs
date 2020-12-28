@@ -24,6 +24,8 @@ pub fn run(contracts: Vec<Contract>) -> Result<()> {
         fs::write(output_file_path, contract.source_code())?;
     }
 
+    println!("✨ contracts written to {:?} folder", output_dir);
+
     Ok(())
 }
 
