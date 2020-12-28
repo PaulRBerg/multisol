@@ -3,6 +3,10 @@ use std::path::PathBuf;
 use structopt::StructOpt;
 
 #[derive(StructOpt)]
+#[structopt(
+    name = "multisol",
+    about = "Command-line application for verifying Solidity contracts on Etherscan."
+)]
 pub struct Cli {
     /// The path to the Solidity contract to look for
     #[structopt(parse(from_os_str))]
