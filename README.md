@@ -31,8 +31,9 @@ $ cargo install multisol
 ### Binaries
 
 Archives of precompiled binaries for multisol are available for macOS, Linux and Windows in our [releases
-page](https://github.com/paulrberg/multisol/releases). If in doubt with regard to the other installation options, you should
-download the binary directly.
+page](https://github.com/paulrberg/multisol/releases).
+
+Use this installation option if you are in doubt with regard to the others.
 
 ## Example
 
