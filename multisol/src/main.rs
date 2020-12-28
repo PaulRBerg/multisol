@@ -38,7 +38,7 @@ pub fn main() {
 ///   2. The contract path is not a directory.
 ///   3. The contract path has the "sol" extension.
 fn sanity_check_path(contract_path: &PathBuf) -> Result<()> {
-    if contract_path.exists() == false {
+    if !contract_path.exists() {
         bail!("Contract does not exist");
     }
 
@@ -46,7 +46,7 @@ fn sanity_check_path(contract_path: &PathBuf) -> Result<()> {
         bail!("Provided path is a directory, not a contract");
     }
 
-    if contract_path.is_file() == false {
+    if !contract_path.is_file() {
         bail!("Provided path is either a broken symlink or you do not have permission to access it");
     }
 

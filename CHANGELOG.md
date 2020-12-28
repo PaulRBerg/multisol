@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Fixed
 
+- Clippy warnings in the "multisol" and "multisol-writer" crates
 - The name of the CLI application when running `--help`
 
 ## [1.0.0] - 2020-12-27

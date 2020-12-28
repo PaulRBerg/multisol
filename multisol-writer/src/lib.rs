@@ -10,7 +10,7 @@ use multisol_structs::Contract;
 pub fn run(contracts: Vec<Contract>) -> Result<()> {
     // The last contract is the one provided by the user since that is the first contract that
     // gets inserted in the vector.
-    let user_provided_contract = contracts.last().with_context(|| format!("No contracts found"))?;
+    let user_provided_contract = contracts.last().with_context(|| "No contracts found")?;
 
     // Delete the output directory if it exists already.
     let output_dir = get_output_dir(&user_provided_contract)?;
@@ -38,9 +38,12 @@ fn get_output_dir(user_provided_contract: &Contract) -> Result<PathBuf> {
         )
     })?;
 
-    let contract_name = contract_file_stem
-        .to_str()
-        .with_context(|| format!("Contract name contains invalid UTF-8"))?;
+    let contract_name = contract_file_stem.to_str().with_context(|| {
+        format!(
+            "Contract name contains invalid UTF-8: {:?}",
+            user_provided_contract.file_name()
+        )
+    })?;
     let contract_name_lowercase = contract_name.to_lowercase();
     let output_dir_str = ["multisol", &contract_name_lowercase].join("-");
 
