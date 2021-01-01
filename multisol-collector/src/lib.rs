@@ -17,7 +17,7 @@ use multisol_structs::Contract;
 
 // The lazy init ensures that the regular expression is compiled exactly once.
 lazy_static! {
-    static ref IMPORT_REGEX: Regex = Regex::new("import ['\"](.*?.sol)['\"];").unwrap();
+    static ref IMPORT_REGEX: Regex = Regex::new("import (?:\\{[^{}]*\\} from )?['\"](.*?.sol)['\"];").unwrap();
 }
 
 /// Entry point to the crate.
