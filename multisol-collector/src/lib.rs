@@ -4,16 +4,16 @@
 //! It is assumed that the user runs Multisol from the root of their Solidity project,
 //! where there is a "node_modules" folder.
 
-use std::collections::HashSet;
+use std::ffi::OsString;
 use std::fs::File;
 use std::io::Read;
 use std::path::PathBuf;
 
-use anyhow::{Context, Result};
+use anyhow::{bail, Context, Result};
 use lazy_static::lazy_static;
 use regex::Regex;
 
-use multisol_structs::Contract;
+use multisol_structs::{Contract, Visit};
 
 // The lazy init ensures that the regular expression is compiled exactly once.
 lazy_static! {
@@ -24,23 +24,34 @@ lazy_static! {
 pub fn run(contract_path: PathBuf) -> Result<Vec<Contract>> {
     let contract = Contract::from_cli(&contract_path)?;
     let mut contracts: Vec<Contract> = vec![];
-    let mut visited: HashSet<PathBuf> = HashSet::new();
-    collect_contracts(contract, &mut contracts, &mut visited)?;
+    let mut visits: Vec<Visit> = Vec::new();
+    collect_contracts(contract, &mut contracts, &mut visits)?;
     Ok(contracts)
 }
 
 /// Starts from the contract provided by the user and finds all the imported contracts recursively.
 /// The search is depth-first.
-fn collect_contracts(
-    mut contract: Contract,
-    contracts: &mut Vec<Contract>,
-    visited: &mut HashSet<PathBuf>,
-) -> Result<()> {
-    // It is possible for multiple contracts to import the same contract.
-    if visited.contains(contract.full_path()) {
-        return Ok(());
+fn collect_contracts(mut contract: Contract, contracts: &mut Vec<Contract>, visits: &mut Vec<Visit>) -> Result<()> {
+    for visit in visits.iter() {
+        // It is possible for multiple contracts to import the same contract.
+        if visit.full_path() == contract.full_path() {
+            return Ok(());
+        }
+
+        // It is possible for multiple contracts to share the same name.
+        if visit.file_name() == contract.file_name() {
+            bail!(
+                "Found two contracts with the same file name. Please rename one of them:\n\n{:?}\n{:?}",
+                visit.full_path(),
+                contract.full_path(),
+            );
+        }
     }
-    visited.insert(PathBuf::from(contract.full_path()));
+
+    visits.push(Visit::new(
+        OsString::from(contract.file_name()),
+        PathBuf::from(contract.full_path()),
+    ));
 
     let source_code = read_source_code(contract.full_path())?;
     let mut multisol_source_code = source_code.clone();
@@ -62,7 +73,7 @@ fn collect_contracts(
             multisol_source_code = multisol_source_code.replace(import_str, &file_name_with_dot);
         }
 
-        collect_contracts(imported_contract, contracts, visited)?;
+        collect_contracts(imported_contract, contracts, visits)?;
     }
 
     contract.set_source_code(multisol_source_code);

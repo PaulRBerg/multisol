@@ -2,6 +2,8 @@
 
 mod cli;
 mod contract;
+mod visit;
 
 pub use cli::Cli;
 pub use contract::Contract;
+pub use visit::Visit;
