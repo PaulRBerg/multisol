@@ -17,9 +17,9 @@ version = "1.1.0"
 
 [dependencies]
 anyhow = "1.0"
-multisol-collector = { path = "../multisol-collector", version = "1.0" }
-multisol-structs = { path = "../multisol-structs", version = "1.0" }
-multisol-writer = { path = "../multisol-writer", version = "1.0" }
+multisol-collector = { path = "../multisol-collector", version = "1.1" }
+multisol-structs = { path = "../multisol-structs", version = "1.1" }
+multisol-writer = { path = "../multisol-writer", version = "1.1" }
 structopt = "0.3"
 
 [dev-dependencies]
