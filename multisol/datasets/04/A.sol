@@ -1,10 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.7.0;
 
-import "./B.sol";
+import { Erc20 } from "@paulrberg/contracts/token/erc20/Erc20.sol";
+import { CarefulMath} from "@paulrberg/contracts/math/CarefulMath.sol";
 
-contract A is B {
-    function a() external pure returns (uint256) {
-        return 1;
-    }
+contract Foo is Erc20 {
+    constructor() Erc20("Foo Token", "FOO", 18) {}
 }
