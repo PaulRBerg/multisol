@@ -38,14 +38,13 @@ Use this installation option if you are in doubt with regard to the others.
 ## Example
 
 The listing below will generate a folder named "multisol-fytoken" that can be used to verify the source code for
-a deployed instance of the `FyToken.sol` contract from the
-[mainframe-lending-protocol](https://github.com/mainframehq/mainframe-lending-protocol) repository.
+a deployed instance of the `BalanceSheet.sol` contract part of the [hifi-protocol](https://github.com/hifi-finance/hifi-protocol) repository.
 
 ```sh
-git clone https://github.com/mainframehq/mainframe-lending-protocol.git /tmp/example
+git clone https://github.com/hifi-finance/hifi-protocol.git /tmp/example
 cd /tmp/example
 yarn install
-multisol contracts/FyToken.sol
+multisol contracts/BalanceSheet.sol
 ```
 
 After the folder is generated, you go to the contract's tab on Etherscan, click the "Verify & Publish" button and select
