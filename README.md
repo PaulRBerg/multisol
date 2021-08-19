@@ -37,13 +37,15 @@ Use this installation option if you are in doubt with regard to the others.
 
 ## Example
 
-The listing below will generate a folder named "multisol-fytoken" that can be used to verify the source code for
-a deployed instance of the `BalanceSheet.sol` contract part of the [hifi-protocol](https://github.com/hifi-finance/hifi-protocol) repository.
+The listing below will generate a folder named "multisol-balancesheet" that can be used to verify the source code for
+a deployed instance of the `BalanceSheet.sol` contract part of the [hifi](https://github.com/hifi-finance/hifi) monorepo.
 
 ```sh
-git clone https://github.com/hifi-finance/hifi-protocol.git /tmp/example
+git clone https://github.com/hifi-finance/hifi /tmp/example
 cd /tmp/example
 yarn install
+yarn build
+cd packages/protocol
 multisol contracts/BalanceSheet.sol
 ```
 
