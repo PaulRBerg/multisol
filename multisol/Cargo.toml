@@ -10,7 +10,7 @@ exclude = [
 ]
 homepage = "https://github.com/paulrberg/multisol"
 keywords = ["ethereum", "etherscan", "solidity", "web3"]
-license = "MIT"
+license = "Unlicense"
 name = "multisol"
 repository = "https://github.com/paulrberg/multisol"
 version = "1.1.0"

@@ -1,4 +1,8 @@
-# Multisol
+# Multisol ![GitHub Actions][gha-badge] ![crates.io][crates-badge] ![License: Unlicense][license-badge]
+
+[gha-badge]: https://github.com/paulrberg/multisol/workflows/integration.yml/badge.svg
+[crates-badge]: https://img.shields.io/crates/v/multisol.svg
+[license-badge]: https://img.shields.io/badge/License-Unlicense-blue.svg
 
 Multisol is a CLI application for verifying Solidity contracts on Etherscan.
 
@@ -22,7 +26,7 @@ $ brew install multisol
 
 ### Cargo
 
-This works across operating systems, but it requires you to have [Cargo](https://doc.rust-lang.org/cargo/getting-started/installation.html) installed on your machine.
+Cargo works across operating systems, but it requires you to have [Cargo](https://doc.rust-lang.org/cargo/getting-started/installation.html) installed on your machine.
 
 ```sh
 $ cargo install multisol
@@ -56,7 +60,7 @@ contract is verified on Etherscan!
 ## Limitations
 
 - Works only with [global-level
-  imports](https://docs.soliditylang.org/en/v0.7.5/layout-of-source-files.html#syntax-and-semantics) like `import "./Foo.sol"`. Imports for specific symbols like `import {Foo} from "./Foo.sol"` aren't recognised yet.
+    imports](https://docs.soliditylang.org/en/v0.7.5/layout-of-source-files.html#syntax-and-semantics) like `import "./Foo.sol"`. Imports for specific symbols like `import {Foo} from "./Foo.sol"` aren't recognized yet.
 - Doesn't work when two or more contract files share the same name
 - Doesn't work when the contract files do not have the "sol" extension
 - Not compatible with Yarn's [Plug'n'Play](https://yarnpkg.com/features/pnp)
@@ -68,4 +72,4 @@ that it uses the multi-part compiler type, while Solt uses [standard json](https
 
 ## License
 
-Software released under the [MIT License](./LICENSE.md).
+[Unlicense](./LICENSE.md)
