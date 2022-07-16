@@ -1,8 +1,11 @@
-# Multisol ![GitHub Actions][gha-badge] ![crates.io][crates-badge] ![License: Unlicense][license-badge]
+# Multisol [![Github Actions][gha-badge]][gha] [![Crates.io][crates-badge]][crates] [![License: MIT][license-badge]][license]
 
-[gha-badge]: https://github.com/paulrberg/multisol/workflows/integration.yml/badge.svg
+[gha]: https://github.com/paulrberg/multisol/actions
+[gha-badge]: https://github.com/paulrberg/multisol/actions/workflows/ci.yml/badge.svg
+[crates]: https://crates.io/crates/multisol
 [crates-badge]: https://img.shields.io/crates/v/multisol.svg
-[license-badge]: https://img.shields.io/badge/License-Unlicense-blue.svg
+[license]: https://opensource.org/licenses/MIT
+[license-badge]: https://img.shields.io/badge/License-MIT-blue.svg
 
 Multisol is a CLI application for verifying Solidity contracts on Etherscan.
 
@@ -72,4 +75,4 @@ that it uses the multi-part compiler type, while Solt uses [standard json](https
 
 ## License
 
-[Unlicense](./LICENSE.md)
+[MIT](./LICENSE.md) © Paul Razvan Berg
