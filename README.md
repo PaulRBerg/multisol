@@ -62,17 +62,19 @@ contract is verified on Etherscan!
 
 ## Limitations
 
-- Works only with [global-level
-    imports](https://docs.soliditylang.org/en/v0.7.5/layout-of-source-files.html#syntax-and-semantics) like `import "./Foo.sol"`. Imports for specific symbols like `import {Foo} from "./Foo.sol"` aren't recognized yet.
+- Aliased specific symbols like `import {symbol1 as alias} from "filename"` are not supported
 - Doesn't work when two or more contract files share the same name
 - Doesn't work when the contract files do not have the "sol" extension
 - Not compatible with Yarn's [Plug'n'Play](https://yarnpkg.com/features/pnp)
 
 ## Acknowledgements
 
-This project has been inspired by [Solt](https://github.com/hjubb/solt), developed by @hjubb. Multisol is different in
-that it uses the multi-part compiler type, while Solt uses [standard json](https://docs.soliditylang.org/en/v0.8.0/using-the-compiler.html) input format.
+This project has been inspired by [Solt](https://github.com/hjubb/solt). Multisol is different in that it uses the multi-part compiler type, while Solt uses [standard json][using-the-compiler] input format.
 
 ## License
 
 [MIT](./LICENSE.md) © Paul Razvan Berg
+
+<!-- Links -->
+
+[using-the-compiler]: https://docs.soliditylang.org/en/v0.8.15/using-the-compiler.html
