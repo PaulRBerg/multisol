@@ -1,9 +1,8 @@
 name: "CI"
 
 on:
+  workflow_dispatch:
   pull_request:
-    branches:
-      - "main"
   push:
     branches:
       - "main"
@@ -14,57 +13,33 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - uses: "actions/checkout@v3"
-      - uses: "actions-rs/toolchain@v1"
-        with:
-          override: true
-          profile: "minimal"
-          toolchain: "stable"
-      - uses: "actions-rs/cargo@v1"
-        with:
-          command: "check"
+      - uses: "dtolnay/rust-toolchain@stable"
+      - run: "cargo check"
 
   test:
     name: "Test Suite"
     runs-on: "ubuntu-latest"
     steps:
       - uses: "actions/checkout@v3"
-      - uses: "actions-rs/toolchain@v1"
-        with:
-          override: true
-          profile: "minimal"
-          toolchain: "stable"
-      - uses: "actions-rs/cargo@v1"
-        with:
-          command: "test"
+      - uses: "dtolnay/rust-toolchain@stable"
+      - run: "cargo test"
 
   fmt:
     name: "Rustfmt"
     runs-on: "ubuntu-latest"
     steps:
       - uses: "actions/checkout@v3"
-      - uses: "actions-rs/toolchain@v1"
+      - uses: "dtolnay/rust-toolchain@nightly"
         with:
-          override: true
-          profile: "minimal"
-          toolchain: "nightly"
-      - run: "rustup component add rustfmt"
-      - uses: "actions-rs/cargo@v1"
-        with:
-          command: "fmt"
-          args: "--all -- --check"
+          components: "rustfmt"
+      - run: "cargo +nightly fmt --all -- --check"
 
   clippy:
     name: "Clippy"
     runs-on: "ubuntu-latest"
     steps:
       - uses: "actions/checkout@v3"
-      - uses: "actions-rs/toolchain@v1"
+      - uses: "dtolnay/rust-toolchain@nightly"
         with:
-          override: true
-          profile: "minimal"
-          toolchain: "nightly"
-      - run: "rustup component add clippy"
-      - uses: "actions-rs/cargo@v1"
-        with:
-          command: "clippy"
-          args: "-- -D warnings"
+          components: "clippy"
+      - run: "cargo clippy -- -D warnings"
