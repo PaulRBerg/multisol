@@ -9,8 +9,8 @@
 
 Multisol is a CLI application for verifying Solidity contracts on Etherscan.
 
-You give it the path to your target contract and it generates a directory with that contract and all its
-dependencies at the same relative path. Multisol refactors the source code to import dependencies from their new location.
+You give it the path to your target contract and it generates a directory with that contract and all its dependencies at
+the same relative path. Multisol refactors the source code to import dependencies from their new location.
 
 - [x] Designed to be used with Etherscan's multi-part compiler type
 - [x] Framework agnostic, so it is compatible with Hardhat, Truffle, or vanilla Solidity projects
@@ -29,7 +29,8 @@ $ brew install multisol
 
 ### Cargo
 
-Cargo works across operating systems, but it requires you to have [Cargo](https://doc.rust-lang.org/cargo/getting-started/installation.html) installed on your machine.
+Cargo works across operating systems, but it requires you to have
+[Cargo](https://doc.rust-lang.org/cargo/getting-started/installation.html) installed on your machine.
 
 ```sh
 $ cargo install multisol
@@ -37,15 +38,15 @@ $ cargo install multisol
 
 ### Binaries
 
-Archives of precompiled binaries for multisol are available for macOS, Linux and Windows in our [releases
-page](https://github.com/paulrberg/multisol/releases).
+Archives of precompiled binaries for multisol are available for macOS, Linux and Windows in our
+[releases page](https://github.com/paulrberg/multisol/releases).
 
 Use this installation option if you are in doubt with regard to the others.
 
 ## Example
 
-The listing below will generate a folder named "multisol-balancesheet" that can be used to verify the source code for
-a deployed instance of the `BalanceSheet.sol` contract part of the [hifi](https://github.com/hifi-finance/hifi) monorepo.
+The listing below will generate a folder named "multisol-balancesheet" that can be used to verify the source code for a
+deployed instance of the `BalanceSheet.sol` contract part of the [hifi](https://github.com/hifi-finance/hifi) monorepo.
 
 ```sh
 git clone https://github.com/hifi-finance/hifi /tmp/example
@@ -62,18 +63,19 @@ contract is verified on Etherscan!
 
 ## Limitations
 
-- Aliased specific symbols like `import {symbol1 as alias} from "filename"` are not supported
+- No support for specific symbol imports like `import {symbol1 as alias} from "filename"`
 - Doesn't work when two or more contract files share the same name
 - Doesn't work when the contract files do not have the "sol" extension
-- Not compatible with Yarn's [Plug'n'Play](https://yarnpkg.com/features/pnp)
+- Not compatible with [Pnpm](https://pnpm.io/) or [Yarn Plug'n'Play](https://yarnpkg.com/features/pnp)
 
 ## Acknowledgements
 
-This project has been inspired by [Solt](https://github.com/hjubb/solt). Multisol is different in that it uses the multi-part compiler type, while Solt uses [standard json][using-the-compiler] input format.
+This project was inspired by [Solt](https://github.com/hjubb/solt), but Multisol is different insofar it uses the
+multi-part compilation option on Etherscan, while Solt uses [standard json][using-the-compiler] input format.
 
 ## License
 
-[MIT](./LICENSE.md) © Paul Razvan Berg
+This project is licensed under MIT.
 
 <!-- Links -->
 
