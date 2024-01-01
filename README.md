@@ -66,7 +66,7 @@ contract is verified on Etherscan!
 - No support for specific symbol imports like `import {symbol1 as alias} from "filename"`
 - Doesn't work when two or more contract files share the same name
 - Doesn't work when the contract files do not have the "sol" extension
-- Not compatible with [Pnpm](https://pnpm.io/) or [Yarn Plug'n'Play](https://yarnpkg.com/features/pnp)
+- Not compatible with [Pnpm](https://pnpm.io/) or [Yarn PnP](https://yarnpkg.com/features/pnp)
 
 ## Acknowledgements
 
