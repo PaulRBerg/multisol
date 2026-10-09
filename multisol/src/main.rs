@@ -1,6 +1,6 @@
 //! Command-line application for verifying Solidity contracts on Etherscan.
 
-use std::path::PathBuf;
+use std::path::Path;
 use std::process;
 
 use anyhow::{bail, Result};
@@ -37,7 +37,7 @@ pub fn main() {
 ///   1. The contract path exists.
 ///   2. The contract path is not a directory.
 ///   3. The contract path has the "sol" extension.
-fn sanity_check_path(contract_path: &PathBuf) -> Result<()> {
+fn sanity_check_path(contract_path: &Path) -> Result<()> {
     if !contract_path.exists() {
         bail!("Contract does not exist");
     }

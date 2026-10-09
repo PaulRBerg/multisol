@@ -1,6 +1,6 @@
 use std::env;
 use std::ffi::OsString;
-use std::path::PathBuf;
+use std::path::{Path, PathBuf};
 
 use anyhow::{Context, Result};
 
@@ -64,7 +64,7 @@ impl Contract {
     }
 
     /// Generates the struct instance starting from the user provided path to the contract.
-    pub fn from_cli(contract_path: &PathBuf) -> Result<Contract> {
+    pub fn from_cli(contract_path: &Path) -> Result<Contract> {
         let full_path = contract_path
             .canonicalize()
             .with_context(|| "Couldn't get an absolute path to the contract path")?;

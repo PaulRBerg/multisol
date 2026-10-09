@@ -13,7 +13,7 @@ pub fn run(contracts: Vec<Contract>) -> Result<()> {
     let user_provided_contract = contracts.last().with_context(|| "No contracts found")?;
 
     // Delete the output directory if it exists already.
-    let output_dir = get_output_dir(&user_provided_contract)?;
+    let output_dir = get_output_dir(user_provided_contract)?;
     if output_dir.is_dir() {
         fs::remove_dir_all(&output_dir)?;
     }
